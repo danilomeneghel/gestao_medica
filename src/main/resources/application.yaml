@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: springbootgraphql
+  datasource:
+    url: jdbc:h2:mem:testdb;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    hikari:
+      connection-timeout: 2000
+      initialization-fail-timeout: 0
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        ddl-auto: update
+        show_sql: true
+        format_sql: true
+        enable_lazy_load_no_trans: true
+    generate-ddl: true
+  h2:
+    console:
+      enabled: true
+
+server:
+  port : 8081
+
+# http://localhost:8081/graphql
+graphql:
+  servlet:
+    mapping: /graphql
+
+
+
+

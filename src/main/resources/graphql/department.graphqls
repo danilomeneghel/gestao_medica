@@ -1,0 +1,22 @@
+type QueryResolver {
+    departments: [Department]
+    department(id: ID!): Department!
+}
+
+type MutationResolver {
+    newDepartment(department: DepartmentInput!): Department
+    updateDepartment(id: ID!, department: DepartmentInput!): Department!
+    deleteDepartment(id: ID!): Boolean
+}
+
+input DepartmentInput {
+    name: String!
+    hospitalId: Int
+}
+
+type Department {
+    id: ID!
+    name: String!
+    doctors: [Doctor]
+    hospital: Hospital
+}
